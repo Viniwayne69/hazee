@@ -1,0 +1,359 @@
+/* Modal de chat do HAZE */
+
+/* ── HAZE MODAL — Painel Único Premium ── */
+.haze-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: rgba(0,0,0,0.80);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.haze-modal.open {
+  display: flex;
+  opacity: 1;
+}
+
+.haze-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.haze-modal-close:hover {
+  color: white;
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* Painel único */
+.haze-modal-inner {
+  width: 100%;
+  max-width: 520px;
+  height: 80vh;
+  max-height: 720px;
+  display: flex;
+  flex-direction: column;
+  background: var(--black);
+  border: 1px solid var(--cinza);
+  border-top: 2px solid var(--ciano);
+  position: relative;
+  overflow: hidden;
+  animation: modalSlideUp 0.45s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+@keyframes modalSlideUp {
+  from { transform: translateY(28px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Header do modal */
+.haze-modal-header {
+  padding: 22px 56px 22px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--cinza);
+  background: var(--grafite);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Monograma H decorativo */
+.haze-modal-header::before {
+  content: 'H';
+  position: absolute;
+  right: -8px;
+  top: -16px;
+  font-family: var(--font-display);
+  font-size: 110px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.035);
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+/* Avatar do robô */
+.haze-modal-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ciano);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--black);
+  overflow: hidden;
+  position: relative;
+}
+
+.haze-modal-avatar .haze-robot {
+  transform-origin: top center;
+  width: 120px;
+  position: absolute;
+  top: -6px;
+  animation: avatarRobotFloat 3s ease-in-out infinite;
+}
+
+@keyframes avatarRobotFloat {
+  0%, 100% { transform: scale(0.26) translateY(0px); }
+  50%       { transform: scale(0.26) translateY(-8px); }
+}
+
+.haze-modal-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.haze-modal-brand {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  color: white;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.haze-modal-status {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ciano);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.haze-modal-status::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--ciano);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: statusPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(24,183,196,0.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(24,183,196,0); }
+}
+
+/* ---- Chat Panel ---- */
+/* Chat area — ocupa todo o espaço restante */
+.haze-chat-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.haze-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  flex: 1;
+  padding: 24px 24px 16px;
+  scrollbar-width: none;
+}
+
+.haze-chat-messages::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bubbles */
+.chat-bubble {
+  max-width: 82%;
+  padding: 14px 18px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.75;
+  animation: bubbleIn 0.38s cubic-bezier(0.22,1,0.36,1);
+}
+
+@keyframes bubbleIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bubble HAZE — borda esquerda ciano */
+.chat-bubble.haze {
+  background: rgba(24,183,196,0.06);
+  border-left: 2px solid var(--ciano);
+  color: rgba(255,255,255,0.92);
+  align-self: flex-start;
+}
+
+/* Bubble usuário — alinhado à direita */
+.chat-bubble.user {
+  background: rgba(255,255,255,0.06);
+  border-right: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.65);
+  align-self: flex-end;
+  text-align: right;
+}
+
+.chat-bubble .bubble-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ciano);
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+/* Rodapé do chat: input + whatsapp */
+.haze-chat-footer {
+  flex-shrink: 0;
+  padding: 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--cinza);
+  padding-top: 18px;
+}
+
+.haze-chat-input-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: var(--grafite);
+  border: 1px solid var(--cinza);
+  padding: 10px 14px;
+  transition: border-color 0.2s;
+}
+
+.haze-chat-input-wrap:focus-within {
+  border-color: var(--ciano);
+}
+
+.haze-chat-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 300;
+  caret-color: var(--ciano);
+}
+
+.haze-chat-input::placeholder {
+  color: rgba(255,255,255,0.30);
+}
+
+/* Botão enviar — ciano */
+.haze-chat-send {
+  background: var(--ciano);
+  color: var(--black);
+  border: none;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.haze-chat-send:hover {
+  opacity: 0.85; transform: scale(1.05);
+}
+
+/* Botão WhatsApp — aparece dinamicamente no fim da conversa */
+.haze-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--ciano);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border: 1px solid var(--ciano);
+  transition: background 0.25s, color 0.25s;
+  cursor: pointer;
+  font-family: var(--font-body);
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+.haze-whatsapp-btn:hover {
+  background: var(--ciano);
+  color: var(--black);
+}
+
+@media (max-width: 768px) {
+  /* Modal tela cheia */
+  .haze-modal {
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .haze-modal-inner {
+    width: 100%;
+    max-width: 100%;
+    height: 100svh;
+    max-height: 100svh;
+    border-radius: 0;
+  }
+  .haze-modal-close {
+    top: 14px; right: 14px;
+  }
+  /* Swipe indicator */
+  .haze-modal-inner::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 4px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 2px;
+    margin: 10px auto 0;
+    flex-shrink: 0;
+  }
+  /* Input sem zoom no iOS */
+  .haze-chat-input {
+    font-size: 16px;
+  }
+  /* Botão enviar — área de toque maior */
+  .haze-chat-send {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+  /* Safe area iOS (notch/home bar) */
+  .haze-chat-footer {
+    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  }
+}

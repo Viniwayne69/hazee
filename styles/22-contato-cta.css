@@ -1,0 +1,85 @@
+/* CTAs do contato */
+
+/* ── CONTACT CTA STRIP ── */
+.contact-cta-strip {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ciano);
+  color: #0A0A0A;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 16px 28px;
+  border: 1px solid var(--ciano);
+  transition: background 0.3s, border-color 0.3s, gap 0.3s, color 0.3s;
+  cursor: auto;
+}
+
+.cta-primary:hover {
+  background: transparent;
+  color: var(--ciano);
+  border-color: var(--ciano);
+  gap: 16px;
+}
+
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  transition: color 0.3s, border-color 0.3s, gap 0.3s;
+  cursor: auto;
+}
+
+.cta-secondary:hover {
+  color: var(--ciano);
+  border-color: var(--ciano);
+  gap: 16px;
+}
+
+/* Sobre: seção clara */
+#sobre .cta-primary {
+  background: #0A0A0A;
+  color: white;
+  border-color: #0A0A0A;
+}
+
+#sobre .cta-primary:hover {
+  background: transparent;
+  color: #0A0A0A;
+}
+
+#sobre .cta-secondary {
+  color: rgba(0,0,0,0.6);
+  border-color: rgba(0,0,0,0.2);
+}
+
+#sobre .cta-secondary:hover {
+  color: #0A0A0A;
+  border-color: #0A0A0A;
+}
+
+@media (max-width: 768px) {
+  .cta-primary,
+.cta-secondary {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,155 @@
+/* Seções claras e scroll reveal */
+
+/* ── SEÇÕES BRANCAS ── */
+.section-light {
+  background: #ffffff;
+}
+
+/* Separador entre seção escura e seção clara */
+.section-light[style],
+#sobre,
+#manifesto,
+#contato {
+  border-top: 1px solid rgba(0,0,0,0.08) !important;
+}
+
+/* Nav sobre seções brancas */
+nav.nav--dark .nav-logo {
+  color: #0A0A0A;
+}
+
+nav.nav--dark .nav-link a {
+  color: rgba(0,0,0,0.65);
+}
+
+nav.nav--dark .nav-link a .roll-bottom {
+  color: var(--ciano);
+}
+
+nav.nav--dark .nav-cta {
+  color: #0A0A0A;
+  border-color: rgba(0,0,0,0.25);
+}
+
+nav.nav--dark .nav-cta:hover {
+  background: #0A0A0A;
+  color: var(--ciano);
+  border-color: #0A0A0A;
+}
+
+nav.nav--dark .nav-hamburger span {
+  background: #0A0A0A;
+}
+
+/* === SOBRE (branco/papel matte) === */
+#sobre {
+  background: #F5F4F1;
+}
+
+#sobre .section-label {
+  color: #111;
+}
+
+#sobre .section-label::before {
+  background: var(--ciano);
+}
+
+#sobre .about-headline {
+  color: #0A0A0A;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(34px, 4.5vw, 68px);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+#sobre .about-headline strong {
+  font-weight: 900;
+}
+
+#sobre .about-body p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+#sobre .about-pillars {
+  background: #E0DFDC;
+  border-color: #D0CFCC;
+}
+
+#sobre .pillar {
+  background: #F5F4F1;
+  transition: background 0.3s ease;
+}
+
+#sobre .pillar:hover {
+  background: #ECEAE6;
+}
+
+#sobre .pillar-icon {
+  color: #0A0A0A; opacity: 0.7;
+}
+
+#sobre .pillar-name {
+  color: #0A0A0A;
+  font-weight: 800;
+}
+
+#sobre .pillar-desc {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* === MANIFESTO (escuro, editorial) === */
+#manifesto {
+  background: var(--black);
+}
+
+#manifesto .manifesto-quote {
+  color: #fff;
+}
+
+#manifesto .manifesto-dim {
+  color: #fff;
+}
+
+#manifesto .manifesto-source {
+  color: var(--ciano); opacity: 0.85;
+}
+
+/* === CONTATO (escuro) === */
+#contato {
+  background: var(--black);
+}
+
+#contato .contact-headline {
+  color: #fff;
+}
+
+#contato .contact-body {
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  filter: blur(8px);
+  transition: opacity 1s cubic-bezier(0.22,1,0.36,1),
+              transform 1s cubic-bezier(0.22,1,0.36,1),
+              filter 1s cubic-bezier(0.22,1,0.36,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+#hero .hero-tagline {
+  position: relative;
+  z-index: 2;
+}

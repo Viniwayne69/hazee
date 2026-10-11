@@ -1,0 +1,157 @@
+/* Hero (slides, dots e CTAs) */
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+
+/* ── SLIDES ── */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 200px;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-slide::before {
+  display: none;
+}
+
+/* ── BACKGROUND (<picture> com art direction via next/image) ── */
+.hero-slide-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+}
+
+.hero-slide-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 767px) {
+  #slide-1 .hero-slide-img {
+    object-position: center 20%;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── DOTS ── */
+.hero-dots {
+  position: absolute;
+  bottom: 155px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.45);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.hero-dot.active {
+  background: var(--ciano);
+  border-color: var(--ciano);
+}
+
+/* ── TEXTO ── */
+.hero-tagline {
+  font-size: clamp(22px, 2.5vw, 36px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 0;
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+    0 0 10px rgba(0,0,0,1),
+    0 2px 18px rgba(0,0,0,0.9);
+}
+
+.hero-cta-wrap {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 20px 44px;
+  border: 1px solid transparent;
+  cursor: auto;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-cta.primary {
+  background: var(--ciano);
+  color: var(--black);
+  border-color: var(--ciano);
+}
+
+.hero-cta.primary:hover {
+  background: transparent;
+  color: var(--ciano);
+  transform: translateY(-2px);
+}
+
+.hero-cta.ghost {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.hero-cta.ghost:hover {
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}

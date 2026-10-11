@@ -1,0 +1,40 @@
+/* Reset, tokens de cor e base do documento */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Paleta oficial HAZE */
+  --black:    #0A0A0A;
+  --grafite:  #1A1A1A;
+  --cinza:    #2E2E2E;
+  --white:    #FFFFFF;
+  --ciano:    #18B7C4;
+  --ouro:     #C2A24A;
+  --roxo:     #5C4DFF;
+  /* Utilitários */
+  --gray-dim:   rgba(255,255,255,0.08);
+  --gray-mid:   rgba(255,255,255,0.40);
+  --gray-faint: rgba(255,255,255,0.55);
+  /* Fontes */
+  /* --font-barlow / --font-open-sans são injetadas pelo next/font em app/layout.tsx */
+  --font-display: var(--font-barlow), 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body:    var(--font-open-sans), 'Open Sans', Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: auto;
+}

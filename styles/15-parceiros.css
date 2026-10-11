@@ -1,0 +1,164 @@
+/* Parceiros certificados */
+
+/* ── PARCEIROS ── */
+#parceiros {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 18px 56px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+
+.parceiros-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  animation: parcDotPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes parcDotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.55); }
+  50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+}
+
+.parceiros-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  flex-shrink: 0;
+}
+
+.parceiros-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Marquee wrap com fade nas bordas */
+.parceiros-marquee-wrap {
+  flex: 1;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.parceiros-logos {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: parcScroll 22s linear infinite;
+}
+
+.parceiros-logos:hover {
+  animation-play-state: paused;
+}
+
+@keyframes parcScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.parceiro-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  opacity: 1;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.parceiro-item:hover {
+  opacity: 0.85; transform: translateY(-1px);
+}
+
+.parceiro-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.parceiro-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.parceiro-type {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.parceiro-svg {
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.08));
+}
+
+/* Shimmer ao hover */
+.parceiro-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg);
+  transition: left 0s;
+}
+
+.parceiro-item:hover {
+  opacity: 1 !important;
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+}
+
+.parceiro-item:hover::after {
+  left: 160%;
+  transition: left 0.55s ease;
+}
+
+.parceiro-svg {
+  height: 40px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  #parceiros {
+    padding: 14px 16px; gap: 10px;
+  }
+  .parceiros-logos {
+    gap: 20px;
+  }
+  .parceiro-svg {
+    height: 28px;
+  }
+  .parceiros-dot {
+    width: 5px; height: 5px;
+  }
+}

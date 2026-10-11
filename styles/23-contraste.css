@@ -1,0 +1,79 @@
+/* Ajustes de contraste entre seções */
+
+/* ========================
+CONTRAST MASTER OVERRIDE
+Garante que NENHUM texto fique invisível
+======================== */
+/* Hero tagline — branco */
+.hero-tagline {
+  color: #ffffff !important;
+}
+
+/* SEÇÕES ESCURAS — tudo branco real */
+.services-desc,
+.numero-label,
+.numero-suffix,
+.value-title,
+.value-desc,
+.manifesto-quote,
+.manifesto-source,
+.marquee-item,
+.pillar-name,
+.pillar-desc,
+.nav-link a,
+.footer-copy,
+.footer-made,
+.footer-tagline,
+.footer-nav a,
+.footer-brand {
+  color: rgba(255,255,255,0.92) !important;
+}
+
+/* Itens de apoio um pouco menos intensos */
+.numero-label,
+.footer-copy,
+.footer-made,
+.parceiros-label {
+  color: rgba(255,255,255,0.62) !important;
+}
+
+/* SEÇÕES CLARAS — preto */
+#sobre .section-label,
+#sobre .about-headline,
+#sobre .about-body p,
+#sobre .pillar-name,
+#sobre .pillar-desc {
+  color: #111 !important;
+}
+
+#sobre .section-label {
+  color: #000 !important;
+}
+
+#sobre .pillar-name {
+  color: #000 !important; font-weight: 800 !important;
+}
+
+#sobre .pillar-desc {
+  color: #444 !important;
+}
+
+/* MANIFESTO — escuro, texto branco */
+#manifesto .manifesto-quote,
+#manifesto .manifesto-dim {
+  color: #ffffff !important;
+}
+
+#manifesto .manifesto-source {
+  color: var(--ciano) !important;
+}
+
+/* CONTATO — escuro, texto branco */
+#contato .contact-headline {
+  color: #ffffff !important;
+}
+
+#contato .contact-body,
+#contato .contact-body p {
+  color: rgba(255,255,255,0.65) !important;
+}

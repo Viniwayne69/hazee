@@ -1,0 +1,48 @@
+/* Manifesto */
+
+/* ── MANIFESTO ── */
+#manifesto {
+  padding: 180px 56px;
+  border-top: 1px solid var(--gray-dim);
+  text-align: center;
+  background: linear-gradient(160deg, #0d1a1b 0%, #0A0A0A 40%, #0A0A0A 60%, #0d1a1b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#manifesto::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(24,183,196,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.manifesto-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.manifesto-quote {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 58px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 48px;
+}
+
+.manifesto-dim {
+  color: white;
+  font-style: normal;
+}
+
+.manifesto-source {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+}

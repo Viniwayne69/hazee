@@ -1,0 +1,230 @@
+/* Seção do robô Spline e convite do chat */
+
+/* ── SPLINE / ROBOT ── */
+#spline-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: url('/images/robo/fundo-desktop.webp') center center / cover no-repeat;
+  border-top: none;
+}
+
+/*
+ * Fundo do robô no mobile: no site original a imagem de desktop continua valendo
+ * também no mobile (a regra mobile era sobrescrita por uma regra posterior).
+ * Para usar a arte própria de mobile, descomente o bloco abaixo.
+ *
+ * @media (max-width: 767px) {
+ *   #spline-section {
+ *     background-image: url('/images/robo/fundo-mobile.webp');
+ *   }
+ * }
+ */
+
+#spline-section spline-viewer {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Gradiente de transição: preto → branco no topo, branco → preto no rodapé */
+.spline-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: transparent;
+  z-index: 2;
+}
+
+.spline-text {
+  position: absolute;
+  bottom: 64px;
+  left: 56px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.spline-text-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75) !important;
+  margin-bottom: 14px;
+}
+
+.spline-text-headline {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: #ffffff !important;
+  text-shadow:
+    1px 1px 0 rgba(0,0,0,0.18),
+    2px 2px 0 rgba(0,0,0,0.12),
+    3px 3px 0 rgba(0,0,0,0.07);
+}
+
+@media (max-width: 900px) {
+  .spline-text {
+    left: 28px; bottom: 48px;
+  }
+}
+
+/* ── HAZE INVITE BUTTON ── */
+/*
+Posição definida dinamicamente via JS após o robô carregar.
+Inicia escondido em (0,0) — JS reposiciona em runtime.
+*/
+.haze-invite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  will-change: top, left, opacity;
+}
+
+.haze-invite.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.haze-invite:hover .haze-invite-text {
+  border-color: rgba(255,255,255,0.82);
+}
+
+.haze-invite-text {
+  position: relative;
+  background: rgba(0,0,0,0.80);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 18px 22px;
+  border-radius: 2px;
+  width: 220px;
+  transition: border-color 0.3s;
+}
+
+/* Cauda diagonal apontando para a cabeça (que está abaixo-esquerda do balão).
+A cauda sai do canto inferior-esquerdo do balão, descendo na diagonal até a cabeça. */
+.haze-invite-text::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: rgba(255,255,255,0.22);
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
+.haze-invite-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -18px;
+  transform: translateY(-50%);
+  width: 21px;
+  height: 21px;
+  background: rgba(0,0,0,0.80);
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
+.invite-name {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 8px;
+}
+
+.invite-msg {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.invite-cta {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 2px;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.haze-invite:hover .invite-cta {
+  color: white;
+}
+
+/* Tablet menor: balão um pouco menor */
+@media (max-width: 900px) and (min-width: 769px) {
+  .haze-invite-text {
+    width: 200px; padding: 14px 18px;
+  }
+  .invite-msg {
+    font-size: 14px;
+  }
+}
+
+/* Mobile — balão menor, seta aponta para a ESQUERDA (em direção ao robô) */
+@media (max-width: 768px) {
+  .haze-invite-text {
+    width: 130px;
+    padding: 9px 11px;
+  }
+  .invite-name {
+    font-size: 6px; margin-bottom: 4px; letter-spacing: 0.26em;
+  }
+  .invite-msg {
+    font-size: 10px; margin-bottom: 6px; line-height: 1.3;
+  }
+  .invite-cta {
+    font-size: 6.5px;
+  }
+  /* Seta na lateral ESQUERDA do balão apontando para o robô */
+  .haze-invite-text::before {
+    bottom: auto;
+    left: -19px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 19px;
+    height: 20px;
+    background: rgba(255,255,255,0.22);
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  }
+  .haze-invite-text::after {
+    bottom: auto;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 16px;
+    background: rgba(0,0,0,0.80);
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 390px) {
+  .haze-invite-text {
+    width: 118px; padding: 8px 10px;
+  }
+  .invite-msg {
+    font-size: 9.5px;
+  }
+}

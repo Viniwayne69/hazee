@@ -1,0 +1,88 @@
+/* Números e contadores */
+
+/* ── NUMEROS / STATS ── */
+#numeros {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--cinza);
+  background: var(--grafite);
+}
+
+.numero-item {
+  padding: 64px 48px;
+  border-right: 1px solid var(--cinza);
+  display: flex;
+  flex-direction: column;
+}
+
+.numero-item:last-child {
+  border-right: none;
+}
+
+.numero-val-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  line-height: 1;
+}
+
+.numero-val {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 6vw, 96px);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  color: white;
+  line-height: 1;
+}
+
+.numero-suffix {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  color: var(--ciano);
+}
+
+.numero-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-top: 16px;
+}
+
+@media (max-width: 1024px) {
+  #numeros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .numero-item:nth-child(2) {
+    border-right: none;
+  }
+  .numero-item:nth-child(3),
+.numero-item:nth-child(4) {
+    border-top: 1px solid var(--gray-dim);
+  }
+  .numero-item:nth-child(4) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #numeros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .numero-item {
+    padding: 40px 24px;
+  }
+  .numero-item:nth-child(2) {
+    border-right: none;
+  }
+  .numero-item:nth-child(3),
+.numero-item:nth-child(4) {
+    border-top: 1px solid var(--gray-dim);
+  }
+  .numero-item:nth-child(4) {
+    border-right: none;
+  }
+}

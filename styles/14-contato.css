@@ -1,0 +1,44 @@
+/* Contato */
+
+/* ── CONTACT ── */
+#contato {
+  padding: 160px 56px 100px;
+  border-top: 1px solid var(--gray-dim);
+}
+
+.contact-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.contact-headline {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 11vw, 160px);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 0.88;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 80px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.contact-body {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.82);
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}

@@ -1,0 +1,79 @@
+/* Texto em partículas (canvas) e fallback mobile */
+
+/* ── PONG CANVAS ── */
+#pong-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--gray-dim);
+}
+
+#pong-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── PARTICLE TEXT — MOBILE FALLBACK ── */
+#pt-mobile {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.pt-mob-word {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(52px, 15vw, 110px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: ptMobCycle 12s infinite;
+}
+
+.pt-mob-word:nth-child(1) {
+  color: #18B7C4; animation-delay:  0s;
+}
+
+.pt-mob-word:nth-child(2) {
+  color: #C2A24A; animation-delay:  2s;
+}
+
+.pt-mob-word:nth-child(3) {
+  color: #5C4DFF; animation-delay:  4s;
+}
+
+.pt-mob-word:nth-child(4) {
+  color: #ffffff; animation-delay:  6s;
+}
+
+.pt-mob-word:nth-child(5) {
+  color: #18B7C4; animation-delay:  8s;
+}
+
+.pt-mob-word:nth-child(6) {
+  color: #C2A24A; animation-delay: 10s;
+}
+
+@keyframes ptMobCycle {
+  0%   { opacity: 0; transform: translateY(24px); }
+  8%   { opacity: 1; transform: translateY(0);    }
+  25%  { opacity: 1; transform: translateY(0);    }
+  33%  { opacity: 0; transform: translateY(-24px);}
+  100% { opacity: 0; transform: translateY(-24px);}
+}
+
+@media (max-width: 768px) {
+  #pong-canvas {
+    display: none;
+  }
+  #pt-mobile {
+    display: flex;
+  }
+}

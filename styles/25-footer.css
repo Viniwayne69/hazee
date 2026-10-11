@@ -1,0 +1,226 @@
+/* Rodapé (versão final) */
+
+/* ── FOOTER REDESIGN ── */
+footer {
+  padding: 88px 64px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: #060606;
+  border-top: none;
+}
+
+/* ─── CTA ROW ─── */
+.footer-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 72px;
+}
+
+.footer-cta-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #18B7C4;
+  margin-bottom: 20px;
+}
+
+.footer-cta-headline {
+  font-size: clamp(38px, 5.5vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.0;
+  margin: 0;
+  color: white;
+}
+
+.footer-cta-headline em {
+  font-style: normal;
+  color: #18B7C4;
+}
+
+.footer-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+  min-width: 200px;
+}
+
+.footer-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.2);
+  text-decoration: none;
+  transition: border-color 0.3s, color 0.3s;
+  cursor: auto;
+}
+
+.footer-btn-ghost:hover {
+  border-color: rgba(255,255,255,0.6);
+  color: white;
+}
+
+.footer-btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #060606;
+  background: #18B7C4;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  cursor: auto;
+}
+
+.footer-btn-solid:hover {
+  background: #22d4e2;
+  transform: translateY(-3px);
+}
+
+/* ─── DIVIDER ─── */
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.07) 15%, rgba(255,255,255,0.07) 85%, transparent);
+  margin-bottom: 56px;
+}
+
+/* ─── FOOTER GRID ─── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-brand {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.footer-tagline {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.75;
+  max-width: 230px;
+}
+
+.footer-col-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav a {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.3s;
+  cursor: auto;
+}
+
+.footer-nav a:hover {
+  color: white;
+}
+
+/* ─── BOTTOM BAR ─── */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-copy {
+  font-size: 10px;
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.08em;
+}
+
+.footer-made {
+  font-size: 10px;
+  color: rgba(255,255,255,0.18);
+  letter-spacing: 0.06em;
+}
+
+/* ─── FOOTER RESPONSIVE ─── */
+@media (max-width: 960px) {
+  footer {
+    padding: 72px 40px 44px;
+  }
+  .footer-cta-row {
+    flex-direction: column; align-items: flex-start; gap: 40px;
+  }
+  .footer-cta-actions {
+    flex-direction: row; min-width: auto;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 60px 24px 40px;
+  }
+  .footer-cta-row {
+    padding-bottom: 52px;
+  }
+  .footer-cta-headline {
+    font-size: clamp(34px, 9vw, 54px);
+  }
+  .footer-grid {
+    grid-template-columns: 1fr; gap: 32px;
+  }
+  .footer-cta-actions {
+    flex-direction: column; width: 100%;
+  }
+  .footer-btn-ghost,
+.footer-btn-solid {
+    cursor: pointer;
+  }
+  .footer-nav a {
+    cursor: pointer;
+  }
+  .footer-bottom {
+    flex-direction: column; gap: 8px; align-items: flex-start;
+  }
+}

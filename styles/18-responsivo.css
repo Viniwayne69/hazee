@@ -1,0 +1,257 @@
+/* Breakpoints (tablet e mobile) */
+
+/* ── RESPONSIVE — TABLET ── */
+@media (max-width: 1024px) {
+  nav {
+    padding: 28px 32px;
+  }
+  .about-grid {
+    gap: 60px;
+  }
+  .services-top {
+    gap: 48px;
+  }
+  .contact-grid {
+    gap: 48px;
+  }
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── RESPONSIVE — MOBILE ── */
+@media (max-width: 768px) {
+  /* Disable custom cursor on touch */
+  body {
+    cursor: auto;
+  }
+  a,
+button {
+    cursor: pointer;
+  }
+  /* Nav */
+  nav {
+    padding: 20px 20px;
+  }
+  .nav-links,
+.nav-cta {
+    display: none;
+  }
+  .nav-hamburger {
+    display: flex;
+  }
+  .mobile-close {
+    right: 20px; top: 24px;
+  }
+  /* Hero */
+  #hero {
+    padding: 0 24px; min-height: 100svh;
+  }
+  .hero-tagline {
+    font-size: 12px; letter-spacing: 0.18em; margin-top: 28px;
+  }
+  .hero-cta-wrap {
+    flex-direction: column; align-items: center; gap: 14px; margin-top: 44px;
+  }
+  .hero-cta {
+    font-size: 15px; padding: 18px 32px; letter-spacing: 0.15em; width: 100%; max-width: 280px; justify-content: center; white-space: nowrap;
+  }
+  /* Parceiros — 2 linhas no mobile */
+  #parceiros {
+    flex-wrap: wrap; justify-content: center; padding: 12px 0 16px; gap: 0; row-gap: 10px;
+  }
+  .parceiros-badge {
+    order: 1;
+  }
+  .parceiros-marquee-wrap {
+    flex: none; flex-basis: 100%; width: 100%; order: 2;
+  }
+  .parceiros-logos {
+    gap: 28px;
+  }
+  .parceiro-svg {
+    height: 34px;
+  }
+  .parceiro-name {
+    font-size: 13px;
+  }
+  .parceiro-type {
+    font-size: 9px;
+  }
+  /* Spline */
+  #spline-section {
+    height: 65svh;
+  }
+  .spline-text {
+    left: 20px; bottom: 28px;
+  }
+  .spline-text-label {
+    font-size: 9px;
+  }
+  .spline-text-headline {
+    font-size: clamp(20px, 5.5vw, 28px);
+  }
+  /* Marquee — só uma linha no mobile */
+  .marquee-reverse {
+    display: none;
+  }
+  .marquee-item {
+    font-size: 9px; gap: 18px; padding: 0 18px;
+  }
+  /* Gooey */
+  /* About */
+  #sobre {
+    padding: 72px 20px;
+  }
+  .about-grid {
+    grid-template-columns: 1fr; gap: 36px;
+  }
+  .about-pillars {
+    grid-template-columns: 1fr; margin-top: 48px;
+  }
+  .pillar {
+    padding: 24px 20px;
+  }
+  .section-label {
+    margin-bottom: 40px;
+  }
+  #sobre .about-headline {
+    font-size: clamp(20px, 5.5vw, 28px);
+  }
+  /* Services */
+  #servicos {
+    padding: 72px 20px;
+  }
+  .services-inner {
+    max-width: 100%;
+  }
+  .services-inner {
+    padding: 0 16px;
+  }
+  .services-top {
+    grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px;
+  }
+  .services-headline {
+    white-space: normal; font-size: clamp(34px, 9vw, 52px);
+  }
+  .services-gallery {
+    grid-template-columns: repeat(2, 1fr); gap: 3px; padding: 0 16px;
+  }
+  /* Pong */
+  #pong-section {
+    height: 55svh;
+  }
+  /* Manifesto */
+  #manifesto {
+    padding: 72px 20px;
+  }
+  .manifesto-quote {
+    font-size: clamp(20px, 5.5vw, 32px); line-height: 1.4;
+  }
+  .manifesto-inner {
+    max-width: 100%;
+  }
+  /* Values */
+  #valores {
+    padding: 72px 20px; max-width: 100%;
+  }
+  .values-grid {
+    grid-template-columns: 1fr; margin-top: 48px;
+  }
+  .value-item {
+    padding: 28px 20px;
+  }
+  .value-title {
+    font-size: 11px;
+  }
+  /* Contact */
+  #contato {
+    padding: 72px 20px 56px;
+  }
+  .contact-inner {
+    max-width: 100%;
+  }
+  .contact-headline {
+    font-size: clamp(30px, 8vw, 52px); margin-bottom: 40px; line-height: 1.0;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr; gap: 36px;
+  }
+  .contact-body {
+    font-size: 14px; line-height: 1.8;
+  }
+  .cta-primary {
+    width: 100%; justify-content: center; padding: 18px 24px;
+  }
+  .cta-secondary {
+    width: 100%; justify-content: center; padding: 18px 0;
+  }
+  .contact-actions {
+    width: 100%;
+  }
+  /* Números */
+  #numeros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .numero-item {
+    padding: 36px 20px;
+  }
+  /* Footer — handled in dedicated footer block below */
+}
+
+/* Touch device: remove sticky hover states */
+@media (hover: none) and (pointer: coarse) {
+  #sobre .pillar:hover {
+    background: #fff; transform: none; box-shadow: none;
+  }
+  .pillar:hover {
+    background: #000;
+  }
+  .value-item:hover {
+    background: #000;
+  }
+  .value-item:hover::before {
+    opacity: 0;
+  }
+  .value-item:hover .value-title {
+    letter-spacing: 0.22em;
+  }
+  .nav-cta:hover {
+    border-color: rgba(255,255,255,0.2); background: transparent;
+  }
+  .haze-invite:hover .haze-invite-text {
+    border-color: rgba(255,255,255,0.22);
+  }
+}
+
+/* ── RESPONSIVE — SMALL MOBILE ── */
+@media (max-width: 390px) {
+  .contact-headline {
+    font-size: clamp(26px, 7.5vw, 36px);
+  }
+  .services-headline {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+  .numero-item {
+    padding: 28px 16px;
+  }
+  .numero-val {
+    font-size: clamp(40px, 10.5vw, 64px);
+  }
+  .about-headline {
+    font-size: clamp(26px, 7vw, 38px);
+  }
+  .manifesto-quote {
+    font-size: clamp(18px, 5vw, 28px);
+  }
+  #hero {
+    padding: 0 16px;
+  }
+  #sobre,
+#servicos,
+#manifesto,
+#valores,
+#contato {
+    padding-left: 16px; padding-right: 16px;
+  }
+}

@@ -1,0 +1,34 @@
+/* Grão de filme e nav com blur */
+
+/* ── FILM GRAIN ── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' width%3D'300' height%3D'300'%3E%3Cfilter id%3D'n'%3E%3CfeTurbulence type%3D'fractalNoise' baseFrequency%3D'0.85' numOctaves%3D'4' stitchTiles%3D'stitch'%2F%3E%3C%2Ffilter%3E%3Crect width%3D'300' height%3D'300' filter%3D'url(%23n)'%2F%3E%3C%2Fsvg%3E");
+  background-size: 256px 256px;
+}
+
+/* HERO CURSOR GLOW — removido */
+/* ── NAV BLUR ON SCROLL ── */
+nav {
+  transition: background 0.5s ease, padding-top 0.4s ease, padding-bottom 0.4s ease, backdrop-filter 0.5s ease;
+}
+
+nav.nav-scrolled:not(.nav--dark) {
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+nav.nav-scrolled.nav--dark {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  padding-top: 18px;
+  padding-bottom: 18px;
+}

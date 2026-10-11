@@ -1,0 +1,35 @@
+/*
+ * Estilos globais da HAZE.
+ *
+ * Portados do index.html original preservando a ordem da cascata (os arquivos
+ * numerados são importados na ordem em que as regras apareciam). Regras sem uso
+ * foram removidas. Para editar, procure o arquivo da seção correspondente.
+ */
+
+@import './01-base.css';
+@import './02-navbar.css';
+@import './03-hero.css';
+@import './04-spline.css';
+@import './05-chat.css';
+@import './06-robot.css';
+@import './07-marquee.css';
+@import './08-sobre.css';
+@import './09-servicos.css';
+@import './10-portfolio.css';
+@import './11-particulas.css';
+@import './12-manifesto.css';
+@import './13-valores.css';
+@import './14-contato.css';
+@import './15-parceiros.css';
+@import './16-footer-base.css';
+@import './17-secoes-claras.css';
+@import './18-responsivo.css';
+@import './19-loader.css';
+@import './20-grain-nav.css';
+@import './21-numeros.css';
+@import './22-contato-cta.css';
+@import './23-contraste.css';
+@import './24-progresso-wa.css';
+@import './25-footer.css';
+@import './26-identidade.css';
+@import './27-efeitos.css';

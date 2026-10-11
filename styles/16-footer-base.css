@@ -1,0 +1,17 @@
+/* Rodapé (base) */
+
+/* ── FOOTER ── */
+footer {
+  padding: 36px 56px;
+  border-top: 1px solid var(--gray-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+}
+
+.footer-copy {
+  font-size: 10px;
+  color: rgba(255,255,255,0.72);
+  letter-spacing: 0.1em;
+}

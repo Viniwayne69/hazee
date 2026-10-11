@@ -1,0 +1,287 @@
+/* Robô em CSS e gestos */
+
+/* Label HAZE (compatibilidade) */
+/* ---- CSS Robot ---- */
+.haze-robot {
+  position: relative;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Head */
+.hr-head {
+  position: relative;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.hr-antenna {
+  width: 3px;
+  height: 20px;
+  background: white;
+  border-radius: 2px;
+  margin-bottom: 2px;
+  position: relative;
+}
+
+.hr-antenna::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.hr-face {
+  width: 80px;
+  height: 70px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hr-eyes {
+  display: flex;
+  gap: 14px;
+}
+
+.hr-eye {
+  width: 14px;
+  height: 14px;
+  background: black;
+  border-radius: 50%;
+  position: relative;
+  animation: robotEyeBlink 5s infinite;
+}
+
+.hr-eye::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+}
+
+@keyframes robotEyeBlink {
+  0%, 88%, 100% { transform: scaleY(1); }
+  92% { transform: scaleY(0.08); }
+}
+
+.hr-mouth {
+  width: 32px;
+  height: 10px;
+  border: 2px solid black;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  transition: all 0.4s ease;
+}
+
+/* Body */
+.hr-body {
+  width: 90px;
+  height: 80px;
+  background: white;
+  border-radius: 10px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+}
+
+.hr-chest {
+  width: 40px;
+  height: 30px;
+  border: 2px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+}
+
+/* Arms */
+.hr-arm {
+  position: absolute;
+  top: 96px;
+  width: 20px;
+  height: 60px;
+  background: white;
+  border-radius: 10px;
+  transform-origin: top center;
+  z-index: 1;
+}
+
+.hr-arm-left {
+  left: -4px; transform: rotate(10deg);
+}
+
+.hr-arm-right {
+  right: -4px; transform: rotate(-10deg);
+}
+
+.hr-forearm-left,
+.hr-forearm-right {
+  position: absolute;
+  bottom: -44px;
+  width: 18px;
+  height: 44px;
+  background: white;
+  border-radius: 9px;
+  transform-origin: top center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hr-hand {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Legs */
+.hr-legs {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.hr-leg {
+  width: 22px;
+  height: 44px;
+  background: white;
+  border-radius: 8px 8px 10px 10px;
+}
+
+/* ── ROBOT GESTURES ── */
+/* IDLE — gentle float */
+.haze-robot {
+  animation: robotFloat 3s ease-in-out infinite;
+}
+
+@keyframes robotFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* THINKING — left arm raised to chin */
+.haze-robot.gesture-thinking {
+  animation: robotFloat 3s ease-in-out infinite;
+}
+
+.haze-robot.gesture-thinking .hr-arm-left {
+  animation: armThinkRaise 0.5s ease forwards;
+}
+
+.haze-robot.gesture-thinking .hr-arm-right {
+  animation: armRelax 0.5s ease forwards;
+}
+
+@keyframes armThinkRaise {
+  to { transform: rotate(-80deg) translateY(-20px); }
+}
+
+@keyframes armRelax {
+  to { transform: rotate(-10deg); }
+}
+
+/* HEART — both arms up forming heart */
+.haze-robot.gesture-heart {
+  animation: robotBounce 0.6s ease-in-out infinite alternate;
+}
+
+.haze-robot.gesture-heart .hr-arm-left {
+  animation: armHeartLeft  0.5s ease forwards;
+}
+
+.haze-robot.gesture-heart .hr-arm-right {
+  animation: armHeartRight 0.5s ease forwards;
+}
+
+.haze-robot.gesture-heart .hr-mouth {
+  border-radius: 0 0 16px 16px; height: 14px;
+}
+
+@keyframes robotBounce {
+  from { transform: translateY(0) scale(1); }
+  to   { transform: translateY(-6px) scale(1.04); }
+}
+
+@keyframes armHeartLeft {
+  to { transform: rotate(-120deg) translateX(8px); }
+}
+
+@keyframes armHeartRight {
+  to { transform: rotate(120deg) translateX(-8px); }
+}
+
+/* DANCE — sway side to side */
+.haze-robot.gesture-dance {
+  animation: robotDance 0.7s ease-in-out infinite alternate;
+}
+
+.haze-robot.gesture-dance .hr-arm-left {
+  animation: armDanceLeft  0.7s ease-in-out infinite alternate;
+}
+
+.haze-robot.gesture-dance .hr-arm-right {
+  animation: armDanceRight 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes robotDance {
+  from { transform: translateY(0) rotate(-4deg); }
+  to   { transform: translateY(-10px) rotate(4deg); }
+}
+
+@keyframes armDanceLeft {
+  from { transform: rotate(-30deg); }
+  to   { transform: rotate(20deg); }
+}
+
+@keyframes armDanceRight {
+  from { transform: rotate(30deg); }
+  to   { transform: rotate(-20deg); }
+}
+
+/* THUMBS UP — right arm extended up */
+.haze-robot.gesture-thumbsup {
+  animation: robotFloat 3s ease-in-out infinite;
+}
+
+.haze-robot.gesture-thumbsup .hr-arm-right {
+  animation: armThumbsUp 0.5s ease forwards;
+}
+
+.haze-robot.gesture-thumbsup .hr-arm-left {
+  animation: armRelaxLeft 0.5s ease forwards;
+}
+
+.haze-robot.gesture-thumbsup .hr-mouth {
+  border-radius: 0 0 16px 16px; height: 14px;
+}
+
+@keyframes armThumbsUp {
+  to { transform: rotate(-140deg) translateY(-10px); }
+}
+
+@keyframes armRelaxLeft {
+  to { transform: rotate(10deg); }
+}

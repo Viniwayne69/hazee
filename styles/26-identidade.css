@@ -1,0 +1,145 @@
+/* Ajustes finais da identidade HAZE */
+
+/* ═══════════════════════════════════════
+HAZE BRAND SYSTEM — Identidade Visual
+═══════════════════════════════════════ */
+/* Cursor ciano */
+/* Scroll progress — ciano */
+#scroll-progress {
+  background: var(--ciano) !important;
+}
+
+/* Nav scrolled: fundo grafite */
+nav.nav-scrolled:not(.nav--dark) {
+  background: rgba(10,10,10,0.92) !important;
+  border-bottom: 1px solid var(--cinza);
+}
+
+nav.nav-scrolled.nav--dark {
+  background: rgba(245,244,241,0.92) !important;
+}
+
+/* Gooey — Barlow Condensed */
+/* Marquee dot — ciano */
+.marquee-dot {
+  background: var(--ciano); opacity: 0.6;
+}
+
+/* Gooey section: fundo grafite */
+/* Spline text */
+.spline-text-headline {
+  font-family: var(--font-display); font-weight: 800; letter-spacing: 0.01em; text-transform: uppercase;
+}
+
+/* Valores section */
+#valores {
+  background: var(--black);
+}
+
+.values-grid {
+  background: var(--cinza) !important;
+  border-color: var(--cinza) !important;
+}
+
+.value-item {
+  background: var(--grafite);
+}
+
+.value-item:hover {
+  background: #222;
+}
+
+.value-item::before {
+  display: none;
+}
+
+/* Manifesto — escuro */
+#manifesto {
+  background: var(--black); border-top: 1px solid var(--cinza);
+}
+
+#manifesto .manifesto-quote {
+  color: white;
+}
+
+#manifesto .manifesto-source {
+  color: var(--ciano);
+}
+
+/* Contato — escuro */
+#contato {
+  background: var(--black); border-top: 1px solid var(--cinza);
+}
+
+#contato .contact-headline {
+  color: white; font-family: var(--font-display);
+}
+
+/* Sobre — seção clara com paper matte */
+#sobre {
+  background: #F5F4F1;
+}
+
+/* Serviços — fundo preto */
+#servicos {
+  background: var(--black);
+}
+
+/* Pong */
+#pong-section {
+  background: var(--black);
+}
+
+/* Portfolio */
+#portfolio {
+  background: var(--grafite); border-top-color: var(--cinza) !important;
+}
+
+/* Stats — grafite */
+#numeros {
+  background: var(--grafite); border-top-color: var(--cinza) !important;
+}
+
+.numero-item {
+  border-right-color: var(--cinza) !important;
+}
+
+/* Footer — mantém tom próprio escuro */
+footer {
+  background: #060606;
+}
+
+.footer-bottom {
+  border-top-color: rgba(255,255,255,0.05) !important;
+}
+
+/* Whatsapp float — ciano */
+#whatsapp-float {
+  background: var(--ciano);
+  color: var(--black);
+  border-color: var(--ciano);
+}
+
+#whatsapp-float:hover {
+  background: transparent;
+  color: var(--ciano);
+}
+
+/* Invite bubble */
+.invite-name {
+  color: var(--ciano);
+}
+
+/* Section-light overrides (Sobre) */
+.section-light .section-label::before {
+  background: #0A0A0A !important;
+}
+
+.section-light .section-label {
+  color: #0A0A0A;
+}
+
+/* Loader */
+.loader-progress-bar {
+  background: var(--ciano);
+}
